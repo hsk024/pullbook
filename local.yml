@@ -17,6 +17,3 @@
     file: path=/tmp/t.rpm state=absent
   - name: Install ansible
     yum: name=ansible enablerepo=epel state=present
-  
-  - name: fjerne git
-    yum: name=git state=absent
