@@ -1,19 +1,9 @@
-#testing
+#Denne tester konseptet med at en klient kjoerer en "pulljobb" der denne fila blir hentet fra github og kjoert.
 # Pull jobb
 - hosts: localhost
   user: root
   tasks:
 
-  # Trenger vel ikke åette opp rpoxy allikevel - name: Sette opp proxy config yum.conf
-  #  lineinfile: dest=/etc/yum.conf line="proxy=http://www-proxy.helsenord.no:8080"
   #
-  - name: Laste ned epel repo til /tmp/t.rpm
-    environment:
-      http_proxy: http://www-proxy.helsenord.no:8080
-    get_url: url=http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-6.noarch.rpm use_proxy=yes dest=/tmp/t.rpm
-  - name: Install repository epel fra /tmp/t.rpm
-    yum: name=/tmp/t.rpm state=present
   - name: Slette rpm-fila /tmp/t.rpm
-    file: path=/tmp/t.rpm state=absent
-  - name: Install ansible
-    yum: name=ansible enablerepo=epel state=present
+    file: path=/etc/gitconfig state=touch
