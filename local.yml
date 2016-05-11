@@ -5,5 +5,5 @@
   tasks:
 
   #
-  - name: Slette rpm-fila /tmp/t.rpm
+  - name: En enkel jobb som "toucher" en fil
     file: path=/etc/gitconfig state=touch
